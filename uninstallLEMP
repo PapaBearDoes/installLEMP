@@ -1,0 +1,19 @@
+#!/bin/bash
+echo "Uninstalling LEMP Stack"
+sudo apt clean
+sudo apt update
+sudo apt upgrade -y
+sudo apt dist-upgrade -y
+
+sudo snap remove certbot
+
+sudo apt purge snapd -y
+sudo apt purge php php-fpm php-curl php-cli php-zip php-mysql php-xml -y
+sudo apt purge mariadb-server -y
+sudo apt purge nginx nginx-common -y
+sudo apt purge ufw -y
+
+sudo apt auto-remove -y
+
+sudo rm -vdrf /var/www/html
+sudo rm -vdrf /etc/nginx
